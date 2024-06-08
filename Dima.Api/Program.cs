@@ -1,4 +1,6 @@
 using Dima.Api.Data;
+using Dima.Api.Handlers;
+using Dima.Core.Handlers;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +14,7 @@ builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(connectionString
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(x => x.CustomSchemaIds(n => n.FullName));
+builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
 
 var app = builder.Build();
 
