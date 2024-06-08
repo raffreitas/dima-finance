@@ -1,4 +1,5 @@
 using Dima.Api.Data;
+using Dima.Api.Endpoints;
 using Dima.Api.Handlers;
 using Dima.Core.Handlers;
 
@@ -20,5 +21,8 @@ var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
+
+app.MapGet("/", () => new { Message = "Ok" });
+app.MapEndpoints();
 
 app.Run();
